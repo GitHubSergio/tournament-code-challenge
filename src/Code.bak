@@ -1,0 +1,40 @@
+// interface LogResults {
+//   print(message: string): void
+// }
+
+class Print {
+  print(message: string): void {
+    console.log(message)
+  }
+}
+
+class MultipleOf {
+  multipleOf(data: number, value: number): boolean {
+    return data % value === 0
+  }
+}
+
+class LoopThrough extends MultipleOf {
+  constructor(public counter: number, public limit: number) {
+    super()
+  }
+  print(message: string): void {
+    console.log(message)
+  }
+
+  loopThrough() {
+    for (this.counter; this.counter <= this.limit; this.counter++) {
+      this.multipleOf(this.counter, 3) &&
+      this.multipleOf(this.counter, 5, )
+        ? this.print(`FizzBuzz ${this.counter}`)
+        : (this.multipleOf(this.counter, 3)
+        ? this.print(`Fizz ${this.counter}`)
+        : (this.multipleOf(this.counter, 5)
+          ? this.print(`Buzz ${this.counter}`)
+          : this.print(`${this.counter}`)))
+    }
+  }
+}
+
+const loop = new LoopThrough(1, 100)
+loop.loopThrough()
