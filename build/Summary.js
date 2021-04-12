@@ -1,24 +1,48 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Summary = void 0;
-var Summary = /** @class */ (function () {
-    function Summary(number, outPut) {
+// Version with no constructor injection - relies on interfaces
+class Summary {
+    constructor(number, outPut) {
         this.number = number;
         this.outPut = outPut;
     }
-    Summary.prototype.loopThroughNumber = function () {
-        var isMultipleOf = this.number.isMultipleOf;
-        var print = this.outPut.print;
-        for (var num = 1; num <= 100; num++) {
+    loopThroughNumber(min, max) {
+        const { isMultipleOf } = this.number;
+        const { print } = this.outPut;
+        for (let num = min; num <= max; num++) {
             isMultipleOf(num, 3) && isMultipleOf(num, 5)
-                ? print("FizzBuzz " + num)
+                ? print(`FizzBuzz`)
                 : (isMultipleOf(num, 3)
-                    ? print("Fizz " + num)
+                    ? print(`Fizz`)
                     : (isMultipleOf(num, 5)
-                        ? print("Buzz " + num)
-                        : print("" + num)));
+                        ? print(`Buzz`)
+                        : print(`${num}`)));
         }
-    };
-    return Summary;
-}());
+    }
+}
 exports.Summary = Summary;
+/*export class Summary {
+  private checkNumbers: CheckNumbers
+  private outPut: ConsoleReport;
+
+  constructor(@Inject checkNumbers: CheckNumbers, @Inject outPut: ConsoleReport) {
+    this.checkNumbers = checkNumbers;
+    this.outPut = outPut;
+  }
+
+  loopThroughNumber(min: number, max: number): void {
+    const {isMultipleOf} = this.checkNumbers
+    const {print} = this.outPut
+
+    for (let num = min; num <= max; num++) {
+      isMultipleOf(num, 3) && isMultipleOf(num, 5)
+        ? print(`FizzBuzz`)
+        : (isMultipleOf(num, 3)
+        ? print(`Fizz`)
+        : (isMultipleOf(num, 5)
+          ? print(`Buzz`)
+          : print(`${num}`)))
+    }
+  }
+}*/
