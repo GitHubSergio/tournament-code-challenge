@@ -1,14 +1,7 @@
 import {ConsoleReport} from '../src/ConsoleReport'
 import {describe} from 'mocha';
 import {expect} from 'chai';
-import {
-  mock,
-  instance,
-  verify,
-  when,
-  spy,
-  capture
-} from 'ts-mockito'
+import {capture, spy} from 'ts-mockito'
 
 describe('ConsoleReport', () => {
   it('should print the report', () => {
