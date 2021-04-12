@@ -1,24 +1,23 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Summary = void 0;
-var Summary = /** @class */ (function () {
-    function Summary(number, outPut) {
+class Summary {
+    constructor(number, outPut) {
         this.number = number;
         this.outPut = outPut;
     }
-    Summary.prototype.loopThroughNumber = function () {
-        var isMultipleOf = this.number.isMultipleOf;
-        var print = this.outPut.print;
-        for (var num = 1; num <= 100; num++) {
+    loopThroughNumber(min, max) {
+        const { isMultipleOf } = this.number;
+        const { print } = this.outPut;
+        for (let num = min; num <= max; num++) {
             isMultipleOf(num, 3) && isMultipleOf(num, 5)
-                ? print("FizzBuzz " + num)
+                ? print(`FizzBuzz ${num}`)
                 : (isMultipleOf(num, 3)
-                    ? print("Fizz " + num)
+                    ? print(`Fizz ${num}`)
                     : (isMultipleOf(num, 5)
-                        ? print("Buzz " + num)
-                        : print("" + num)));
+                        ? print(`Buzz ${num}`)
+                        : print(`${num}`)));
         }
-    };
-    return Summary;
-}());
+    }
+}
 exports.Summary = Summary;
