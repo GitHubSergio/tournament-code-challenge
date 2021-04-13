@@ -1,9 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const typescript_ioc_1 = require("typescript-ioc");
 const Summary_1 = require("./Summary");
-const CheckNumbers_1 = require("./CheckNumbers");
-const ConsoleReport_1 = require("./ConsoleReport");
-/*const summary = new Summary(new CheckNumbers(), new ConsoleReport())
-summary.loopThroughNumber(1, 100)*/
-const summary = new Summary_1.Summary(new CheckNumbers_1.CheckNumbers(), new ConsoleReport_1.ConsoleReport());
+let summary = typescript_ioc_1.Container.get(Summary_1.Summary);
 summary.loopThroughNumber(1, 100);
+// or the above can be chained
+// Container.get(Summary).loopThroughNumber(1, 100);
